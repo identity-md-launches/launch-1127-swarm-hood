@@ -11,14 +11,14 @@
   "contracts": [],
   "pool": {
     "pairedCurrency": "0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127",
-    "fee": 3000,
+    "fee": 12500,
     "tickSpacing": 60,
-    "initialPrice": "125270724187523965593206900"
+    "initialPrice": "79228162514264337593543950336"
   },
   "economics": {
     "poolBps": 9000,
     "initialMarketCapWei": "2500000000000000000000",
     "remainderTo": "0x000000000000000000000000000000000000dead"
   },
-  "notes": "Swarm Hood (SHOOD): a fixed-supply plain ERC-20 on Robinhood Chain. The constructor takes no arguments and mints the whole 1,000,000,000 SHOOD (1e27 minor units) once to its deployer, the launch factory. No owner, no admin, no mint after launch, no fee, tax or transfer limit, no proxy, no delegatecall, no selfdestruct. The factory sends the swarm's 10% through its Merkle distributor, seeds the Uniswap v4 pool (PoolManager 0x8366a39cc670b4001a1121b8f6a443a643e40951) with 90% of the supply paired with IMD, and sends any remainder to remainderTo. initialPrice is provenance only; the deployer derives the opening price from initialMarketCapWei and the deployed currency order."
+  "notes": "Swarm Hood (SHOOD): a fixed-supply plain ERC-20 on Robinhood Chain, implemented in src/SHOODToken.sol as contract SHOODToken. The constructor takes no arguments and mints the whole 1,000,000,000 SHOOD (1e27 minor units) once to its deployer, the launch factory; totalSupply() is a constant and there is no mint path afterwards. No owner, no admin, no pause, no blacklist, no fee, tax or transfer limit, no proxy, no delegatecall, no selfdestruct; every parameter is a compile-time constant and the contract imports nothing. There are no application contracts. The factory distributes the supply: it sends the swarm's 10% through the launch's Merkle distributor, seeds the Uniswap v4 pool (PoolManager 0x8366a39cc670b4001a1121b8f6a443a643e40951) single-sided with 90% of the supply paired with IMD at 0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127, and sends any remainder to remainderTo. pool.fee 12500 is the launch policy's 1.25% fee at which the factory opens the pool. pool.initialPrice is provenance only (the brief quoted 125270724187523965593206900 with SHOOD as currency0); the deployer derives the opening price from economics.initialMarketCapWei (2500 IMD for the whole supply), totalSupply and the deployed currency order."
 }
