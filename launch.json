@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "SHOODToken",
+    "name": "Swarm Hood",
+    "symbol": "SHOOD",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "125270724187523965593206900"
+  },
+  "economics": {
+    "poolBps": 9000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x000000000000000000000000000000000000dead"
+  },
+  "notes": "Swarm Hood (SHOOD): a fixed-supply plain ERC-20 on Robinhood Chain. The constructor takes no arguments and mints the whole 1,000,000,000 SHOOD (1e27 minor units) once to its deployer, the launch factory. No owner, no admin, no mint after launch, no fee, tax or transfer limit, no proxy, no delegatecall, no selfdestruct. The factory sends the swarm's 10% through its Merkle distributor, seeds the Uniswap v4 pool (PoolManager 0x8366a39cc670b4001a1121b8f6a443a643e40951) with 90% of the supply paired with IMD, and sends any remainder to remainderTo. initialPrice is provenance only; the deployer derives the opening price from initialMarketCapWei and the deployed currency order."
+}
